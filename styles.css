@@ -5,7 +5,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10em;
-    margin: unset;
     padding: 5em 15em;
     font-family: 'IBM Plex Sans';
     color: #303030;
@@ -13,9 +12,9 @@ body {
 
 .settings {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
     gap: 1.25em;
     min-width: 25em;
     min-height: 35em;
@@ -46,10 +45,7 @@ body {
     min-height: 50em;
 }
 
-.canvas__pixel {
-    background-color: #303030;
-    border: none;
-}
+/* Skins */ 
 
 .canvas--shadow {
     box-shadow: 0 0 1.25em #858585;
