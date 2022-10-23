@@ -15,9 +15,6 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-.settings--container {
     flex-direction: column;
     gap: 1.25em;
     min-width: 25em;
@@ -40,7 +37,7 @@ body {
 }
 
 .settings__slider {
-    margin-top: 7.5em;
+    margin-top: 5em;
 }
 
 .canvas {
@@ -49,17 +46,17 @@ body {
     min-height: 50em;
 }
 
+.canvas__pixel {
+    background-color: #303030;
+    border: none;
+}
+
 .canvas--shadow {
     box-shadow: 0 0 1.25em #858585;
 }
 
 .canvas--gridlines {
     border: 0.01px solid rgb(0, 0, 0, 0.05);
-}
-
-.canvas__pixel {
-    background-color: #303030;
-    border: none;
 }
 
 /* Animations */
