@@ -58,4 +58,6 @@ body {
 
 .canvas__pixel {
     background-color: #303030;
+    border: none;
 }
+
