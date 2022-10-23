@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;400;500;700&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -12,17 +13,33 @@ body {
 
 .settings {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .settings--container {
     flex-direction: column;
+    gap: 1.25em;
     min-width: 25em;
     min-height: 35em;
+    padding-top: 1.25em;
     background-color: transparent;
     border: 1px dotted #303030;
     border-radius: 3em;
+}
+
+.settings__button {
+    width: 10em;
+    height: 2.5em;
+    font-size: 1.15em;
+    color: white;
+    background-color: #303030;
+    border: none;
+    border-radius: 2.5em;
+}
+
+.settings__slider {
+    margin-top: 7.5em;
 }
 
 .canvas {
