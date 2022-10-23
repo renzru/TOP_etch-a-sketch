@@ -36,6 +36,7 @@ body {
     background-color: #303030;
     border: none;
     border-radius: 2.5em;
+    transition: all 0.15s linear;
 }
 
 .settings__slider {
@@ -48,16 +49,28 @@ body {
     min-height: 50em;
 }
 
-.canvas--gridlines {
-    border: 0.01px solid rgb(0, 0, 0, 0.05);
-}
-
 .canvas--shadow {
     box-shadow: 0 0 1.25em #858585;
+}
+
+.canvas--gridlines {
+    border: 0.01px solid rgb(0, 0, 0, 0.05);
 }
 
 .canvas__pixel {
     background-color: #303030;
     border: none;
 }
+
+/* Animations */
+
+.settings__button:hover {
+    transform: scale(1.15);
+}
+
+.settings__button:active {
+    transform: scale(1.05);
+    background-color: #101010;
+}
+
 
