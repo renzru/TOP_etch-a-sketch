@@ -20,8 +20,8 @@ body {
     flex-direction: column;
     min-width: 25em;
     min-height: 35em;
-    background-color: #33a3ff;
-    color: white;
+    background-color: transparent;
+    border: 1px dotted #303030;
     border-radius: 3em;
 }
 
