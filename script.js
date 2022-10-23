@@ -13,14 +13,17 @@ function fillCanvas() {
     for (let i = 0; i < gridCount*gridCount; i++){
 
         let canvasPixel = document.createElement('div');
+        canvasPixel.classList.add('canvas--gridlines');
 
         canvasPixel.addEventListener('click', () => {
             canvasPixel.classList.add('canvas__pixel');
+            canvasPixel.classList.remove('canvas--gridlines');
         });
         
         canvasPixel.addEventListener('mouseover', () => {
             if (mouseDrag == true) {
                 canvasPixel.classList.add('canvas__pixel');
+                canvasPixel.classList.remove('canvas--gridlines');
             }
         });
 
