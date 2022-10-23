@@ -26,9 +26,15 @@ body {
 }
 
 .canvas {
+    display: grid;
     min-width: 50em;
     min-height: 50em;
 }
+
 .canvas--shadow {
     box-shadow: 0 0 1.25em #858585;
+}
+
+.canvas__pixel {
+    background-color: #303030;
 }
