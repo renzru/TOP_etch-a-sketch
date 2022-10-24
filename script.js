@@ -3,7 +3,7 @@ var setSlider = document.querySelector('.settings__slider');
 var setSliderInfo = document.querySelector('.settings__slider--info');
 var canvas = document.querySelector('.canvas');
 let sliderValue = 16;
-let gridTotal = 256;
+let gridSize = 256;
 
 
 function initGridCells() {
@@ -28,14 +28,14 @@ function initSettings() {
 function editPixels(color) {
     let canvasPixels = canvas.childNodes;
     
-    for (let i = 0; i < gridTotal; i++){
+    for (let i = 0; i < gridSize; i++){
         canvasPixels[i].addEventListener('mouseover', () => {
             canvasPixels[i].style.backgroundColor = `${color}`;
         })} 
 }
 
 function populateCanvas() {
-    for (let i = 0; i < gridTotal; i++) {
+    for (let i = 0; i < gridSize; i++) {
         let pixelPop = document.createElement('div');
         pixelPop.classList.add('canvas--gridlines');
 
@@ -51,7 +51,7 @@ function clearCanvas() {
 
 function updateCanvas() {
     sliderValue = setSlider.value;
-    gridTotal = sliderValue*sliderValue;
+    gridSize = sliderValue*sliderValue;
     initGridCells();
     clearCanvas();
 }
