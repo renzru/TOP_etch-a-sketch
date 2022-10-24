@@ -15,7 +15,14 @@ function initSettings() {
     setButtons[0].addEventListener('click', () => editPixels('#303030'));
     setButtons[2].addEventListener('click', () => editPixels('transparent'));
     setButtons[3].addEventListener('click', () => clearCanvas());
-    setSlider.addEventListener('input', () => updateCanvas());
+    setSlider.addEventListener('change', () => updateCanvas());
+
+    /* updating the slider info needs a different event handler since
+    the updateCanvas function lags when triggered on 'input'*/
+    setSlider.addEventListener('input', () => {
+        sliderValue = setSlider.value;
+        setSliderInfo.innerHTML = `${sliderValue} x ${sliderValue}`;
+    })
 }
 
 function editPixels(color) {
@@ -44,7 +51,6 @@ function clearCanvas() {
 
 function updateCanvas() {
     sliderValue = setSlider.value;
-    setSliderInfo.innerHTML = `${sliderValue} x ${sliderValue}`;
     gridTotal = sliderValue*sliderValue;
     initGridCells();
     clearCanvas();
