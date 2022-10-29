@@ -34,12 +34,14 @@ body {
     background-color: transparent;
     border: none;
     outline: none;
-    cursor: pointer; 
+    cursor: pointer;
+    transition: all 0.125s linear; 
 }
 
 .settings__colorpicker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
+    box-shadow: 0 0.1em 1em rgb(0, 0, 0, 0.3);
 }
 .settings__button {
     width: 10em;
@@ -53,8 +55,12 @@ body {
 }
 
 .settings__slider {
-    cursor: pointer; 
     margin-top: 5em;
+    background: linear-gradient(to right, #303030 0%, #303030 25%, #fff 25%, #fff 100%);
+    border-radius: 2.5em;
+    cursor: pointer; 
+    transition: all ease-in-out;
+    -webkit-appearance: none;
 }
 
 .canvas {
@@ -63,10 +69,37 @@ body {
     min-height: 50em;
 }
 
+/* Slider Styling 
+WHY IS IT SO CONVOLUTED? */
+
+input[type=range] {
+    height: 1em;
+    margin: 2.25em 0;
+    width: 12.5em;
+    -webkit-appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 0.3em;
+    box-shadow: 0 0 rgb(0, 0, 0, 0.3);
+    border-radius: 10em;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    width: 1.5em;
+    height: 1.5em;
+    margin: -8px 0;
+    background: white;
+    border-radius: 50%;
+    border: 0px solid #000000;
+    box-shadow: 0 0 0.25em rgb(0, 0, 0, 0.75);
+    -webkit-appearance: none;
+  }
+
 /* Skins */ 
 
 .canvas--shadow {
-    box-shadow: 0 0 1.25em #858585;
+    box-shadow: 0 0em 1em rgb(0, 0, 0, 0.3)
 }
 
 .canvas--gridlines {
@@ -75,6 +108,9 @@ body {
 
 /* Animations */
 
+.settings__colorpicker:hover {
+    transform: scale(1.10);
+}
 .settings__button:hover {
     transform: scale(1.15);
     color: white;

@@ -1,10 +1,12 @@
 var setButtons = document.querySelectorAll('.settings__button');
 var setSlider = document.querySelector('.settings__slider');
+var setSwatch = document.querySelector('.settings__colorpicker');
 var setSliderInfo = document.querySelector('.settings__slider--info');
 var canvas = document.querySelector('.canvas');
 let sliderValue = 16;
 let gridSize = 256;
 let mouseDrag = false;
+let swatchColor = setSwatch.value;
 
 document.body.onmousedown = () => mouseDrag = true;
 document.body.onmouseup = () => mouseDrag = false;
@@ -25,9 +27,18 @@ function initSettings() {
     setSlider.addEventListener('input', () => {
         sliderValue = setSlider.value;
         setSliderInfo.innerHTML = `${sliderValue} x ${sliderValue}`;
-    })
+    });
+    
+    // Misc. Animation
+    setSwatch.addEventListener("input", () => editSliderColor());
+    setSlider.addEventListener("input", () => editSliderColor());
 }
 
+function editSliderColor() {
+    var value = (setSlider.value-setSlider.min)/(setSlider.max-setSlider.min)*100;
+    var color = setSwatch.value;
+    setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
+}
 function editPixels(color) {
     let canvasPixels = canvas.childNodes;
     
@@ -70,6 +81,8 @@ function updateCanvas() {
 initGridCells();
 initSettings();
 populateCanvas();
+
+// Misc. Animations
 
 
 
