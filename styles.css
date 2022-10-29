@@ -45,11 +45,11 @@ body {
     width: 10em;
     padding: 1.15em;
     font-size: 1.15em;
-    color: white;
-    background-color: #303030;
-    border: none;
+    color: #303030;
+    background-color: transparent;
+    border: 1.5px solid #303030;
     border-radius: 2.5em;
-    transition: all 0.15s linear;
+    transition: all 0.125s linear;
 }
 
 .settings__slider {
@@ -77,10 +77,13 @@ body {
 
 .settings__button:hover {
     transform: scale(1.15);
+    color: white;
+    background-color: #303030;
 }
 
 .settings__button:active {
     transform: scale(1.05);
+    color: white;
     background-color: #101010;
 }
 
