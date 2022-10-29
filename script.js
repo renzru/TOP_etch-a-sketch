@@ -54,7 +54,7 @@ function populateCanvas() {
 
         canvas.appendChild(canvasPixel);
     }
-    colorPixels('#303030');
+    colorPixels(setSwatch.value);
 }
 
 function clearCanvas() {
