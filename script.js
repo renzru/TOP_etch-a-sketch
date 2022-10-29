@@ -6,7 +6,6 @@ var canvas = document.querySelector('.canvas');
 let sliderValue = 16;
 let gridSize = 256;
 let mouseDrag = false;
-let swatchColor = setSwatch.value;
 
 document.body.onmousedown = () => mouseDrag = true;
 document.body.onmouseup = () => mouseDrag = false;
@@ -17,9 +16,10 @@ function initGridCells() {
 }
 
 function initSettings() {
-    setButtons[0].onclick = () => editPixels('#303030');
-    setButtons[2].onclick = () => editPixels('transparent');
-    setButtons[3].onclick = () => clearCanvas();
+    setSwatch.oninput = () => colorPixels(setSwatch.value);
+    setButtons[0].onclick = () => colorPixels(setSwatch.value);
+    setButtons[2].onclick = () => colorPixels('transparent');
+    setButtons[3].onclick = () => clearCanvas(); 
 
     /* updating the slider info needs a different event handler since
     the updateCanvas function lags when triggered on 'input'*/
@@ -27,19 +27,10 @@ function initSettings() {
     setSlider.addEventListener('input', () => {
         sliderValue = setSlider.value;
         setSliderInfo.innerHTML = `${sliderValue} x ${sliderValue}`;
-    });
-    
-    // Misc. Animation
-    setSwatch.addEventListener("input", () => editSliderColor());
-    setSlider.addEventListener("input", () => editSliderColor());
+    });   
 }
 
-function editSliderColor() {
-    var value = (setSlider.value-setSlider.min)/(setSlider.max-setSlider.min)*100;
-    var color = setSwatch.value;
-    setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
-}
-function editPixels(color) {
+function colorPixels(color) {
     let canvasPixels = canvas.childNodes;
     
     for (let i = 0; i < gridSize; i++){
@@ -63,7 +54,7 @@ function populateCanvas() {
 
         canvas.appendChild(canvasPixel);
     }
-    editPixels('#303030');
+    colorPixels('#303030');
 }
 
 function clearCanvas() {
@@ -83,8 +74,13 @@ initSettings();
 populateCanvas();
 
 // Misc. Animations
+setSwatch.addEventListener("input", () => editSliderColor());
+setSlider.addEventListener("input", () => editSliderColor());
 
-
+function editSliderColor() {
+    var value = (setSlider.value-setSlider.min)/(setSlider.max-setSlider.min)*100;
+    setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
+}
 
 
 
