@@ -24,6 +24,23 @@ body {
     border-radius: 3em;
 }
 
+.settings h1{ 
+    margin-bottom: 0;
+}
+
+.settings__colorpicker {
+    width: 7.5em;
+    height: 7.5em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer; 
+}
+
+.settings__colorpicker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
 .settings__button {
     width: 10em;
     padding: 1.15em;
@@ -36,6 +53,7 @@ body {
 }
 
 .settings__slider {
+    cursor: pointer; 
     margin-top: 5em;
 }
 
