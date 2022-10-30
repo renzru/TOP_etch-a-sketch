@@ -20,7 +20,6 @@ body {
     gap: 1.25em;
     min-width: 25em;
     min-height: 35em;
-    padding-top: 1.25em;
     background-color: white;
     border: 1px dotted #303030;
     border-radius: 3em;
@@ -44,6 +43,7 @@ body {
     border: none;
     border-radius: 50%;
     box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
 }
 
 .settings__button {
@@ -103,6 +103,7 @@ body {
     min-height: unset;
     padding-top: unset;
     border: none;
+    box-shadow: 0 0em 0.25em rgb(0, 0, 0, 0.3)
 }
 
 .colorpicker--palette {
