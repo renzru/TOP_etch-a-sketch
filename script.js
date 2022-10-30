@@ -92,6 +92,13 @@ function initSettings() {
 
 // Misc. Animations
 
+// Rotating Rainbow Button
+setButtons[1].addEventListener('mouseover', () => 
+setButtons[1].classList.add('rotate'));
+
+setButtons[1].addEventListener('animationend', () => 
+setButtons[1].classList.remove('rotate'));
+
 // Dynamic Slider Color
 setSlider.addEventListener('input', () => editSliderColor());
 

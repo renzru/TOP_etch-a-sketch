@@ -11,12 +11,13 @@
   <body>
     <div class="content">
     <div class="content__body">
-      <div class="settings settings--container shadow">
+      <div class="settings shadow">
         <input class="settings__colorpicker" type="color" value="#303030"> 
-        <button class="settings__button"></button>
-        <button class="settings__button"></button>
-        <button class="settings__button"></button>
-        <button class="settings__button"></button>
+        <img class="settings__button draw" src="./images/paint-brush.png">
+        <img class="settings__button rainbow" src="./images/rainbow-wheel.png">
+        <img class="settings__button erase" src="./images/eraser.png">
+        <img class="settings__button clear" src="./images/trash-bin.png">
+        <img class="settings__button draw" src="./images/settings.png">
       </div>
     <div class="canvas shadow"></div>
     <div class ="settings settings--palette shadow"> 
@@ -39,8 +40,9 @@
 <p class="settings__slider--info">16 x 16</p>
     <script src="script.js" async defer></script>
   </div>
-  <footer class ="footer">
-    <p>by renzru</p>
+  <footer class ="content__footer">
+    <p class="footer__text">by renzru</p>
+    <a href="https://github.com/renzru" target="_blank"><img class="footer__icon" src="./images/github-logo.png"></a>
   </footer>
   </body>
 

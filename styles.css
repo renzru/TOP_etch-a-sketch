@@ -32,7 +32,7 @@ body {
     justify-content: center; 
     align-items: center;
     gap: 1.25em;
-    height: 20em;
+    height: 25em;
     width: 5em;
     padding: 0.25em;
     background-color: white;
@@ -49,19 +49,13 @@ body {
     transition: all 0.125s linear; 
 }
 
-.settings__colorpicker::-webkit-color-swatch {
-    border: none;
-    border-radius: 100%;
-    box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.3);
-}
-
 .settings__button {
-    width: 2.5em;
-    height: 2.5em;
+    width: 1.5em;
+    height: 1.5em;
     padding: 0.5em;
-    background-color: transparent;
-    border: 1.5px solid #303030;
+    background-color: white;
     border-radius: 2.5em;
+    box-shadow: 0 0 0.3em rgb(0, 0, 0, 0.3);
     transition: all 0.125s linear;
 }
 
@@ -76,6 +70,13 @@ body {
     -webkit-appearance: none;
 }
 
+
+.settings__colorpicker::-webkit-color-swatch {
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.3);
+}
+
 .canvas {
     display: grid;
     min-width: 50em;
@@ -83,12 +84,19 @@ body {
     background-color: white;
 }
 
- .footer {
+ .content__footer {
    display: flex;
    align-items: center;
    justify-content: center;
    flex: 1;
+   gap: 0.25em;
    margin: 0;
+}
+
+.footer__icon {
+    width: 1em;
+    height: 1em;
+    transition: all 0.1s ease-in-out;
 }
 
 /* Skins */
@@ -138,16 +146,32 @@ body {
 .settings__colorpicker:hover {
     transform: scale(1.10);
 }
+
 .settings__button:hover {
-    transform: scale(1.15);
     color: white;
-    background-color: #303030;
+    background-color: #e4e4e4;
+    filter: invert(100%);
 }
 
 .settings__button:active {
-    transform: scale(1.05);
+    transform: scale(1.15);
     color: white;
     background-color: #101010;
+
 }
+
+.rotate {
+    animation: rotation 0.75s 1 ease-in-out;
+}
+
+@keyframes rotation {
+    to { 
+        transform: rotate(360deg); 
+    }
+  }
+  
+.footer__icon:hover {
+    transform: scale(1.25);
+} 
 
 
