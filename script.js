@@ -67,16 +67,16 @@ function initSettings() {
 
     for (let i = 0; i < paletteSwatch.length; i++) {
         paletteSwatch[i].addEventListener('input', () => {
-            editSliderColor()
-            colorPixels(paletteSwatch[i].value)
             setSwatch.value = paletteSwatch[i].value;
+            colorPixels(paletteSwatch[i].value)
+            editSliderColor();
         });
 
         paletteSwatch[i].addEventListener('click', () => {
-            editSliderColor()
-            colorPixels(paletteSwatch[i].value);
             if (paletteSwatch[i].value != '#ffffff'){
                 setSwatch.value = paletteSwatch[i].value;
+                colorPixels(paletteSwatch[i].value);
+                editSliderColor();
             }
         });                                   
     }
