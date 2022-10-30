@@ -14,6 +14,7 @@ Etch-a-Sketch webpage for the Odin Project
   - Add option to toggle Color Palette <br> 
  </ul>
  <li> Tweak for Responsive Layout <br>
+ <li> Improve variable names in script.js file <br>
 
   <h1>Credits</h1>
   
