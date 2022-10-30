@@ -7,7 +7,7 @@ Etch-a-Sketch webpage for the Odin Project
   - Improve how Color Palette updates <br> 
  </ul>
  <li> Implement Rainbow Mode <br>
- <li> Add Advanced Settings Button that displays a Modal under Color Palette <br>
+ <li> Display Modal when Settings button is clicked  <br>
  <ul> 
   - Add option to toggle Grid Lines <br>
   - Add option to toggle Background Color <br>
