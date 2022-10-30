@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10em;
+    gap: 2.5em;
     padding: 5em 15em;
     font-family: 'IBM Plex Sans';
     color: #303030;
@@ -96,6 +96,19 @@ WHY IS IT SO CONVOLUTED? */
 
 .canvas--shadow {
     box-shadow: 0 0em 1em rgb(0, 0, 0, 0.3)
+}
+
+.settings--palette { 
+    gap: 0;
+    min-width: unset;
+    min-height: unset;
+    padding-top: unset;
+    border: none;
+    box-shadow: 0 0em 0.25em rgb(0, 0, 0, 0.3) ;
+}
+
+.colorpicker--palette {
+    padding: 0.5em;
 }
 
 .canvas--gridlines {
