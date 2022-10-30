@@ -79,26 +79,18 @@ function initSettings() {
     setSwatch.oninput = () => colorPixels();
 
     for (let i = 0; i < paletteSwatch.length; i++) {
-        paletteSwatch[i].addEventListener('input', () => {
-            setSwatch.value = paletteSwatch[i].value;
+        paletteSwatch[i].addEventListener('input', (e) => {
+            setSwatch.value = e.target.value;
             editSliderColor();
         });
 
-        paletteSwatch[i].addEventListener('click', () => {
-            if (paletteSwatch[i].value !== '#ffffff'){
-                setSwatch.value = paletteSwatch[i].value;
+        paletteSwatch[i].addEventListener('click', (e) => {
+            if (e.target.value !== '#ffffff'){
+                setSwatch.value = e.target.value;
                 editSliderColor();
             }
         });                                   
     }
-
-    /* updating the slider info needs a different event handler since
-    the updateCanvas function lags when triggered on 'input'*/
-    setSlider.addEventListener('change', () => updateCanvas());
-    setSlider.addEventListener('input', () => {
-        sliderValue = setSlider.value;
-        setSliderInfo.innerHTML = `${sliderValue} x ${sliderValue}`;
-    });   
 }
 
 initCanvasCells();
@@ -115,6 +107,12 @@ populateCanvas();
 /* --------------------MISC. ANIMATIONS------------------------------------*/
 
 // text
+
+// Slider Size Display
+setSlider.addEventListener('change', () => updateCanvas());
+setSlider.addEventListener('input', (e) => {
+    setSliderInfo.innerHTML = `${e.target.value} x ${e.target.value}`;
+});   
 
 // Rotating Rainbow Button
 setButtons[1].addEventListener('mouseover', () => 
