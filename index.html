@@ -9,25 +9,17 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="settings settings--container">
-      <h1>Settings</h1>
-      <input class="settings__colorpicker" type="color" value="#303030"> 
-      <button class="settings__button">Draw</button>
-      <button class="settings__button">Rainbow</button>
-      <button class="settings__button">Eraser</button>
-      <button class="settings__button">Clear</button>
-      <input
-        class="settings__slider"
-        type="range"
-        min="1"
-        max="64"
-        value="16"
-      />
-      <p class="settings__slider--info">16 x 16</p>
-    </div>
-
-    <div class="canvas canvas--shadow"></div>
-    <div class ="settings settings--palette"> 
+    <div class="content">
+    <div class="content__body">
+      <div class="settings settings--container shadow">
+        <input class="settings__colorpicker" type="color" value="#303030"> 
+        <button class="settings__button"></button>
+        <button class="settings__button"></button>
+        <button class="settings__button"></button>
+        <button class="settings__button"></button>
+      </div>
+    <div class="canvas shadow"></div>
+    <div class ="settings settings--palette shadow"> 
       <input class="settings__colorpicker colorpicker--palette" type="color" value="#FFFFFF"> 
       <input class="settings__colorpicker colorpicker--palette" type="color" value="#FFFFFF"> 
       <input class="settings__colorpicker colorpicker--palette" type="color" value="#FFFFFF"> 
@@ -36,6 +28,21 @@
       <input class="settings__colorpicker colorpicker--palette" type="color" value="#FFFFFF"> 
       <input class="settings__colorpicker colorpicker--palette" type="color" value="#FFFFFF"> 
     </div>
+  </div>
+  <input
+  class="settings__slider"
+  type="range"
+  min="1"
+  max="64"
+  value="16"
+/>
+<p class="settings__slider--info">16 x 16</p>
     <script src="script.js" async defer></script>
+  </div>
+  <footer class ="footer">
+    <p>by renzru</p>
+  </footer>
   </body>
+
+ 
 </html>

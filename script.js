@@ -115,6 +115,3 @@ function editPalette() {
     paletteCounter++;
 }
 
-
-
-
