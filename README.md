@@ -6,7 +6,7 @@ Etch-a-Sketch webpage for the Odin Project
  <ul>Improve how Color Palette updates <br>
  <li> Add Advanced Settings Button under Color Palette <br>
  <ul> Add option to toggle Grid <br>
- <ul> Add option to toggle Background Color <br>
- <ul> Add option to toggle Color Palette <br>
+      Add option to toggle Background Color <br>
+      Add option to toggle Color Palette <br>
  <li> Implement Rainbow Mode <br>
  <li> Tweak for Responsive Layout <br>
