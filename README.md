@@ -6,7 +6,7 @@ Etch-a-Sketch webpage for the Odin Project
  <ul>
   - Improve how Color Palette updates <br> 
  </ul>
- <li> Implement Rainbow Mode <br>
+ <li><s>Implement Rainbow Mode</s> ✅<br>
  <li> Display Modal when Settings button is clicked  <br>
  <ul> 
   - Add option to toggle Grid Lines <br>
