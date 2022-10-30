@@ -6,40 +6,42 @@ var setSliderInfo = document.querySelector('.settings__slider--info');
 var canvas = document.querySelector('.canvas');
 let sliderValue = 16;
 let gridSize = 256;
-let mouseDrag = false;
+let currentMode = 'Draw';
 
+let mouseDrag = false;
 document.body.onmousedown = () => mouseDrag = true;
 document.body.onmouseup = () => mouseDrag = false;
 
-initCanvasCells();
-initSettings();
-populateCanvas();
+function colorPixels(e) {
+    if (mouseDrag !== true && e.type !== 'mousedown') {
+        return;
+    }
 
-function colorPixels(color) {
-    let canvasPixels = canvas.childNodes;
-    
-    for (let i = 0; i < gridSize; i++){
+    let color;
+    switch (true) {
+        case (currentMode === 'Draw'): 
+            color = setSwatch.value;
+            break;
 
-        canvasPixels[i].onclick = () => {
-            canvasPixels[i].style.backgroundColor = `${color}`;
-        }
+        case (currentMode === 'Rainbow'):
+            color = randomColor();
+            break;
 
-        canvasPixels[i].onmouseover = () => {
-            if (mouseDrag == true) {
-                canvasPixels[i].style.backgroundColor = `${color}`;
-            }                         
-        }
-    } 
+        case (currentMode === 'Eraser'):
+            color = 'transparent';
+            break;
+    }
+
+    e.target.style.backgroundColor = color; 
 }
 
-function populateCanvas() {
-    for (let i = 0; i < gridSize; i++) {
-        let canvasPixel = document.createElement('div');
-        canvasPixel.classList.add('canvas--gridlines');
+function randomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
 
-        canvas.appendChild(canvasPixel);
-    }
-    colorPixels(setSwatch.value);
+    let color = `rgb(${r},${g},${b})`;
+    return color;
 }
 
 function clearCanvas() {
@@ -54,28 +56,37 @@ function updateCanvas() {
     clearCanvas();
 }
 
+function populateCanvas() {
+    for (let i = 0; i < gridSize; i++) {
+        let canvasPixel = document.createElement('div');
+        canvasPixel.classList.add('canvas--gridlines');
+        canvasPixel.addEventListener('mouseover', colorPixels);
+        canvasPixel.addEventListener('mousedown', colorPixels);
+        canvas.appendChild(canvasPixel);
+    }
+}
+
 function initCanvasCells() {
     canvas.style.gridTemplateColumns = `repeat(${sliderValue}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${sliderValue}, 1fr)`;
 }
 
 function initSettings() {
-    setButtons[0].onclick = () => colorPixels(setSwatch.value);
-    setButtons[2].onclick = () => colorPixels('transparent');
+    setButtons[0].onclick = () => currentMode = 'Draw';
+    setButtons[1].onclick = () => currentMode = 'Rainbow';
+    setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
-    setSwatch.oninput = () => colorPixels(setSwatch.value);
+    setSwatch.oninput = () => colorPixels();
 
     for (let i = 0; i < paletteSwatch.length; i++) {
         paletteSwatch[i].addEventListener('input', () => {
             setSwatch.value = paletteSwatch[i].value;
-            colorPixels(paletteSwatch[i].value)
             editSliderColor();
         });
 
         paletteSwatch[i].addEventListener('click', () => {
-            if (paletteSwatch[i].value != '#ffffff'){
+            if (paletteSwatch[i].value !== '#ffffff'){
                 setSwatch.value = paletteSwatch[i].value;
-                colorPixels(paletteSwatch[i].value);
                 editSliderColor();
             }
         });                                   
@@ -90,7 +101,20 @@ function initSettings() {
     });   
 }
 
-// Misc. Animations
+initCanvasCells();
+initSettings();
+populateCanvas();
+
+
+
+
+
+
+
+
+/* --------------------MISC. ANIMATIONS------------------------------------*/
+
+
 
 // Rotating Rainbow Button
 setButtons[1].addEventListener('mouseover', () => 
