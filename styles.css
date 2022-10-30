@@ -43,7 +43,6 @@ body {
     border: none;
     border-radius: 50%;
     box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.3);
-    transition: all 0.2s ease-in-out;
 }
 
 .settings__button {
@@ -108,6 +107,10 @@ body {
 
 .colorpicker--palette {
     padding: 0.5em;
+}
+
+.colorpicker--palette::-webkit-color-swatch {
+    transition: all 0.2s ease-in-out;
 }
 
 .canvas--gridlines {
