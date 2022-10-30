@@ -14,3 +14,12 @@ Etch-a-Sketch webpage for the Odin Project
   - Add option to toggle Color Palette <br> 
  </ul>
  <li> Tweak for Responsive Layout <br>
+
+  <h1>Credits</h1>
+  
+  **Icons:** <br>
+  Draw: https://www.flaticon.com/free-icon/paint-brush_587377
+  Rainbow: https://favpng.com
+  Eraser: https://www.flaticon.com/free-icon/eraser_686187
+  Clear: https://www.flaticon.com/free-icon/trash-bin_4662651
+  Settings: https://www.flaticon.com/free-icon/settings_503849
