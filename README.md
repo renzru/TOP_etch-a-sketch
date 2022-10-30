@@ -18,8 +18,8 @@ Etch-a-Sketch webpage for the Odin Project
   <h1>Credits</h1>
   
   **Icons:** <br>
-  Draw: https://www.flaticon.com/free-icon/paint-brush_587377
-  Rainbow: https://favpng.com
-  Eraser: https://www.flaticon.com/free-icon/eraser_686187
-  Clear: https://www.flaticon.com/free-icon/trash-bin_4662651
-  Settings: https://www.flaticon.com/free-icon/settings_503849
+  Draw: https://www.flaticon.com/free-icon/paint-brush_587377 <br>
+  Rainbow: https://favpng.com </br>
+  Eraser: https://www.flaticon.com/free-icon/eraser_686187 <br>
+  Clear: https://www.flaticon.com/free-icon/trash-bin_4662651 <br>
+  Settings: https://www.flaticon.com/free-icon/settings_503849 <br>
