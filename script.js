@@ -103,7 +103,6 @@ function editSliderColor() {
 // Color Palette History
 setSwatch.addEventListener('change', () => editPalette());
 setSwatch.addEventListener('input', () => editSliderColor());
-setSwatch.addEventListener('change', () => editSliderColor());
 
 let paletteCounter = 0;
 
