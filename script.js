@@ -31,7 +31,6 @@ function colorPixels(e) {
             color = 'transparent';
             break;
     }
-
     e.target.style.backgroundColor = color; 
 }
 
@@ -76,21 +75,6 @@ function initSettings() {
     setButtons[1].onclick = () => currentMode = 'Rainbow';
     setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
-    setSwatch.oninput = () => colorPixels();
-
-    for (let i = 0; i < paletteSwatch.length; i++) {
-        paletteSwatch[i].addEventListener('input', (e) => {
-            setSwatch.value = e.target.value;
-            editSliderColor();
-        });
-
-        paletteSwatch[i].addEventListener('click', (e) => {
-            if (e.target.value !== '#ffffff'){
-                setSwatch.value = e.target.value;
-                editSliderColor();
-            }
-        });                                   
-    }
 }
 
 initCanvasCells();
@@ -105,8 +89,6 @@ populateCanvas();
 
 
 /* --------------------MISC. ANIMATIONS------------------------------------*/
-
-// text
 
 // Slider Size Display
 setSlider.addEventListener('change', () => updateCanvas());
@@ -129,7 +111,7 @@ function editSliderColor() {
     setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
 }
 
-// Color Palette History
+// Color Palette History - Main Updater
 setSwatch.addEventListener('change', () => editPalette());
 setSwatch.addEventListener('input', () => editSliderColor());
 
@@ -142,5 +124,20 @@ function editPalette() {
     
     paletteSwatch[paletteCounter].value = setSwatch.value;
     paletteCounter++;
+}
+
+// Color Palette History - Slider Updater
+for (let i = 0; i < paletteSwatch.length; i++) {
+    paletteSwatch[i].addEventListener('input', (e) => {
+        setSwatch.value = e.target.value;
+        editSliderColor();
+    });
+
+    paletteSwatch[i].addEventListener('click', (e) => {
+        if (e.target.value !== '#ffffff'){
+            setSwatch.value = e.target.value;
+            editSliderColor();
+        }
+    });                                   
 }
 

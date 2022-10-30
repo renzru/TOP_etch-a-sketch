@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .content {
     display: flex;
     flex-direction: column;
@@ -149,7 +150,7 @@ body {
 
 .settings__button:hover {
     color: white;
-    background-color: #e4e4e4;
+    background-color: #d5d5d5;
     filter: invert(100%);
 }
 
