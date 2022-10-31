@@ -5,6 +5,7 @@ var paletteSwatch = document.querySelectorAll('.colorpicker--palette');
 var setSliderInfo = document.querySelector('.settings__slider--info');
 var setModal = document.querySelector('.content__modal-background');
 var modalContent = document.querySelector('.modal__display-content');
+var modalClose = document.querySelector('.modal__close-button')
 var canvas = document.querySelector('.canvas'); 
 let sliderValue = 16;
 let gridSize = 256;
@@ -78,8 +79,8 @@ function initSettings() {
     setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
     setButtons[4].onclick = () => {
-        setModal.classList.toggle('hide')
-        modalContent.classList.toggle('show-modal')
+        setModal.classList.remove('hide')
+        modalContent.classList.add('show-modal')
     };   
 }
 
@@ -87,16 +88,16 @@ initCanvasCells();
 initSettings();
 populateCanvas();
 
-
-
-
-
-
-
-
 /* --------------------MISC. ANIMATIONS------------------------------------*/
 
 // Modal
+modalClose.onclick = () => {
+    modalContent.classList.add('close-modal')
+    setTimeout(() => {
+        setModal.classList.toggle('hide')
+        modalContent.classList.remove('close-modal', 'show-modal');
+    }, 250);
+}
 
 // Slider Size Display
 setSlider.addEventListener('change', () => updateCanvas());

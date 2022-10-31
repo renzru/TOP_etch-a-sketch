@@ -179,17 +179,30 @@ body {
 /* Animations */
 
 .show-modal {
-    animation: modal 0.3s ease-in-out;
+    animation: modal-show 0.25s ease-in-out;
 }
 
-@keyframes modal {
+@keyframes modal-show {
     0% {
-        transform: translateY(200%) scale(0.25);
+        transform: scale(0);
     }
 
     100% {
         transform: scale(1);
-        transform: translateY(0%);
+    }
+}
+
+.close-modal {
+    animation: modal-close 0.25s ease-in-out;
+}
+
+@keyframes modal-close {
+    0% {
+        transform: scale(1);
+    }
+    
+    100% {
+        transform: scale(0);
     }
 }
 
