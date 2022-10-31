@@ -193,7 +193,7 @@ body {
 }
 
 .close-modal {
-    animation: modal-close 0.175s ease-in-out;
+    animation: modal-close 0.2s ease-in-out;
 }
 
 @keyframes modal-close {
