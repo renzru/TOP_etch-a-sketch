@@ -3,7 +3,9 @@ var setSlider = document.querySelector('.settings__slider');
 var setSwatch = document.querySelector('.settings__colorpicker');
 var paletteSwatch = document.querySelectorAll('.colorpicker--palette');
 var setSliderInfo = document.querySelector('.settings__slider--info');
-var canvas = document.querySelector('.canvas');
+var setModal = document.querySelector('.content__modal-background');
+var modalContent = document.querySelector('.modal__display-content');
+var canvas = document.querySelector('.canvas'); 
 let sliderValue = 16;
 let gridSize = 256;
 let currentMode = 'Draw';
@@ -75,7 +77,10 @@ function initSettings() {
     setButtons[1].onclick = () => currentMode = 'Rainbow';
     setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
-    setButtons[4].onclick = () => clearCanvas();   
+    setButtons[4].onclick = () => {
+        setModal.classList.toggle('hide')
+        modalContent.classList.toggle('show-modal')
+    };   
 }
 
 initCanvasCells();
@@ -90,6 +95,8 @@ populateCanvas();
 
 
 /* --------------------MISC. ANIMATIONS------------------------------------*/
+
+// Modal
 
 // Slider Size Display
 setSlider.addEventListener('change', () => updateCanvas());

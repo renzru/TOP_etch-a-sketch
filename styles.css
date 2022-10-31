@@ -89,7 +89,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    flex-direction: column;
 }
 
  .content__footer {
@@ -105,6 +105,33 @@ body {
     width: 1em;
     height: 1em;
     transition: all 0.1s ease-in-out;
+}
+
+.content__modal-background {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    transition: all 0.25s ease-in-out;
+}
+
+.modal__display-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    width: 25em;
+    padding: 5em;
+    background-color: white;
+    border-radius: 1.25em;
+    animation: all 0.25s ease-in-out;
 }
 
 /* Skins */
@@ -151,6 +178,21 @@ body {
 
 /* Animations */
 
+.show-modal {
+    animation: modal 0.3s ease-in-out;
+}
+
+@keyframes modal {
+    0% {
+        transform: translateY(200%) scale(0.25);
+    }
+
+    100% {
+        transform: scale(1);
+        transform: translateY(0%);
+    }
+}
+
 .settings__colorpicker:hover {
     transform: scale(1.10);
 }
@@ -168,20 +210,6 @@ body {
 
 }
 
-.rotate {
-    animation: rotation 0.75s 1 ease-in-out;
-}
-
-@keyframes rotation {
-    to { 
-        transform: rotate(360deg); 
-    }
-  }
-  
-.footer__icon:hover {
-    transform: scale(1.25);
-} 
-
 .update-color {
     animation: update 0.5s 1 ease-in-out;
 }
@@ -196,3 +224,17 @@ body {
         transform: scale(1);
     }
 }
+
+.rotate {
+    animation: rotation 0.75s 1 ease-in-out;
+}
+
+@keyframes rotation {
+    to { 
+        transform: rotate(360deg); 
+    }
+  }
+  
+.footer__icon:hover {
+    transform: scale(1.25);
+} 
