@@ -85,6 +85,13 @@ body {
     background-color: white;
 }
 
+.content__slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
  .content__footer {
    display: flex;
    align-items: center;
@@ -175,4 +182,17 @@ body {
     transform: scale(1.25);
 } 
 
+.update-color {
+    animation: update 0.5s 1 ease-in-out;
+}
 
+@keyframes update {
+    
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

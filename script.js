@@ -75,6 +75,7 @@ function initSettings() {
     setButtons[1].onclick = () => currentMode = 'Rainbow';
     setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
+    setButtons[4].onclick = () => clearCanvas();   
 }
 
 initCanvasCells();
@@ -111,7 +112,7 @@ function editSliderColor() {
     setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
 }
 
-// Color Palette History - Main Updater
+// Color Palette History - Swatch Updater
 setSwatch.addEventListener('change', () => editPalette());
 setSwatch.addEventListener('input', () => editSliderColor());
 
@@ -120,17 +121,22 @@ let paletteCounter = 0;
 function editPalette() {
     if (paletteCounter == paletteSwatch.length) {
         paletteCounter = 0;
-    }
-    
+    } 
+
     paletteSwatch[paletteCounter].value = setSwatch.value;
+    paletteSwatch[paletteCounter].classList.add('update-color');
     paletteCounter++;
 }
 
-// Color Palette History - Slider Updater
+// Color Palette History - Animations Updater
 for (let i = 0; i < paletteSwatch.length; i++) {
     paletteSwatch[i].addEventListener('input', (e) => {
         setSwatch.value = e.target.value;
         editSliderColor();
+    });
+
+    paletteSwatch[i].addEventListener('animationend', (e) => {
+        e.target.classList.remove('update-color');
     });
 
     paletteSwatch[i].addEventListener('click', (e) => {
