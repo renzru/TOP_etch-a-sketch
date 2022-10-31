@@ -96,7 +96,7 @@ modalClose.onclick = () => {
     setTimeout(() => {
         setModal.classList.toggle('hide')
         modalContent.classList.remove('close-modal', 'show-modal');
-    }, 250);
+    }, 175);
 }
 
 // Slider Size Display
