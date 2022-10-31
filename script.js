@@ -79,8 +79,9 @@ function initSettings() {
     setButtons[2].onclick = () => currentMode = 'Eraser';
     setButtons[3].onclick = () => clearCanvas();   
     setButtons[4].onclick = () => {
-        setModal.classList.remove('hide')
-        modalContent.classList.add('show-modal')
+        setModal.classList.remove('hide');
+        modalContent.classList.remove('hide');
+        modalContent.classList.add('show-modal');
     };   
 }
 
@@ -92,13 +93,16 @@ populateCanvas();
 
 // Modal
 modalClose.onclick = () => {
-    modalContent.classList.add('close-modal')
+    modalContent.classList.add('close-modal');
+
     setTimeout(() => {
-        setModal.classList.toggle('hide')
+        setModal.classList.add('hide')
+        modalContent.classList.add('hide')
         modalContent.classList.remove('close-modal');
         modalContent.classList.remove('show-modal');
     }, 200);
 }
+
 
 // Slider Size Display
 setSlider.addEventListener('change', () => updateCanvas());
