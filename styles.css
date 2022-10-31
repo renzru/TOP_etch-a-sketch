@@ -80,8 +80,8 @@ body {
 
 .canvas {
     display: grid;
-    min-width: 50em;
-    min-height: 50em;
+    width: 50em;
+    height: 50em;
     background-color: white;
 }
 
@@ -252,3 +252,36 @@ body {
 .footer__icon:hover {
     transform: scale(1.25);
 } 
+
+
+@media (max-width: 1000px) {
+    .canvas {
+        min-width: none;
+        min-height: none;
+        width: 22.5em;
+        height: 22.5em;
+    }
+
+    .content__body {
+        flex-direction: column;
+    }
+
+    .settings {
+        flex-direction: row;
+        height: 5em;
+        width: 22.5em;
+        gap: 0.75em;
+    }
+
+    .settings--palette {
+        height: 3.5em;
+        gap: 0.5em;
+    }
+    
+    .colorpicker--palette {
+        width: 3.75em;
+        height: 3.75em;
+        padding: 0;
+        gap: 0.5em;
+    }
+}

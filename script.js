@@ -89,6 +89,8 @@ initCanvasCells();
 initSettings();
 populateCanvas();
 
+// MEDIA QUERY A DEVICE WIDTH OF 1000
+
 /* --------------------MISC. ANIMATIONS------------------------------------*/
 
 // Modal
