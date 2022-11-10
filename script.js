@@ -95,16 +95,8 @@ populateCanvas();
 
 // Modal
 modalClose.onclick = () => {
-    modalContent.classList.add('close-modal');
-
-    setTimeout(() => {
-        setModal.classList.add('hide')
-        modalContent.classList.add('hide')
-        modalContent.classList.remove('close-modal');
-        modalContent.classList.remove('show-modal');
-    }, 200);
+    setModal.classList.add('hide');
 }
-
 
 // Slider Size Display
 setSlider.addEventListener('change', () => updateCanvas());
