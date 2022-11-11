@@ -1,6 +1,6 @@
 # Etch-a-Sketch
 Etch-a-Sketch webpage for the Odin Project
-Live Page: https://renzru.github.io/TOP_etch-a-sketch/
+Live Page: https://renzru.github.io/etch-a-sketch/
 
 ![image](https://user-images.githubusercontent.com/112093726/201337915-9f1960a4-cc68-460e-9b58-27f2873cdd4e.png)
 
