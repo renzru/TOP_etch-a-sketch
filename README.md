@@ -1,20 +1,6 @@
-# TOP_etch-a-sketch
+# Etch-a-Sketch
 Etch-a-Sketch webpage for the Odin Project
 
- <h1>TODO</h1>
- <li><s>Add Color Palette History</s> ✅<br>
- <ul>
-  - Improve how Color Palette updates <br> 
- </ul>
- <li><s>Implement Rainbow Mode</s> ✅<br>
- <li><s>Display Modal when Settings button is clicked</s>✅<br>
- <ul> 
-  - Add option to toggle Grid Lines <br>
-  - Add option to toggle Background Color <br>
-  - Add option to toggle Color Palette <br> 
- </ul>
- <li> Tweak for Responsive Layout <br>
- <li> Improve variable names in script.js file <br>
 
   <h1>Credits</h1>
   
