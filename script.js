@@ -1,37 +1,40 @@
-var setButtons = document.querySelectorAll('.settings__button');
-var setSlider = document.querySelector('.settings__slider');
-var setSwatch = document.querySelector('.settings__colorpicker');
-var paletteSwatch = document.querySelectorAll('.colorpicker--palette');
-var setSliderInfo = document.querySelector('.settings__slider--info');
-var setModal = document.querySelector('.content__modal-background');
-var modalContent = document.querySelector('.modal__display-content');
-var modalClose = document.querySelector('.modal__close-button')
-var canvas = document.querySelector('.canvas');
+var setButtons = document.querySelectorAll(".settings__button");
+var setSlider = document.querySelector(".settings__slider");
+var setSwatch = document.querySelector(".settings__colorpicker");
+var setPalette = document.querySelector(".settings--palette");
+var paletteSwatch = document.querySelectorAll(".colorpicker--palette");
+var setSliderInfo = document.querySelector(".settings__slider--info");
+var setModal = document.querySelector(".content__modal-background");
+var modalContent = document.querySelector(".modal__display-content");
+var modalClose = document.querySelector(".modal__close-button");
+var modalToggle = document.querySelectorAll(".modal__toggle");
+var canvas = document.querySelector(".canvas");
 let sliderValue = 16;
 let gridSize = 256;
-let currentMode = 'Draw';
+let currentMode = "Draw";
+let gridlinesOn = true;
 
 let mouseDrag = false;
-document.body.addEventListener('mousedown', () => mouseDrag = true);
-document.body.addEventListener('mouseup', () => mouseDrag = false);
+document.body.addEventListener("mousedown", () => (mouseDrag = true));
+document.body.addEventListener("mouseup", () => (mouseDrag = false));
 
 function colorPixels(e) {
-  if (mouseDrag !== true && e.type !== 'mousedown') {
+  if (mouseDrag !== true && e.type !== "mousedown") {
     return;
   }
 
   let color;
   switch (true) {
-    case (currentMode === 'Draw'):
+    case currentMode === "Draw":
       color = setSwatch.value;
       break;
 
-    case (currentMode === 'Rainbow'):
+    case currentMode === "Rainbow":
       color = randomColor();
       break;
 
-    case (currentMode === 'Eraser'):
-      color = 'transparent';
+    case currentMode === "Eraser":
+      color = "transparent";
       break;
   }
   e.target.style.backgroundColor = color;
@@ -60,10 +63,12 @@ function updateCanvas() {
 
 function populateCanvas() {
   for (let i = 0; i < gridSize; i++) {
-    let canvasPixel = document.createElement('div');
-    canvasPixel.classList.add('canvas--gridlines');
-    canvasPixel.addEventListener('mouseover', colorPixels);
-    canvasPixel.addEventListener('mousedown', colorPixels);
+    let canvasPixel = document.createElement("div");
+    if (gridlinesOn === true) {
+      canvasPixel.classList.add("canvas--gridlines");
+    }
+    canvasPixel.addEventListener("mouseover", colorPixels);
+    canvasPixel.addEventListener("mousedown", colorPixels);
     canvas.appendChild(canvasPixel);
   }
 }
@@ -74,14 +79,14 @@ function initCanvasCells() {
 }
 
 function initSettings() {
-  setButtons[0].onclick = () => currentMode = 'Draw';
-  setButtons[1].onclick = () => currentMode = 'Rainbow';
-  setButtons[2].onclick = () => currentMode = 'Eraser';
+  setButtons[0].onclick = () => (currentMode = "Draw");
+  setButtons[1].onclick = () => (currentMode = "Rainbow");
+  setButtons[2].onclick = () => (currentMode = "Eraser");
   setButtons[3].onclick = () => clearCanvas();
   setButtons[4].onclick = () => {
-    setModal.classList.remove('hide');
-    modalContent.classList.remove('hide');
-    modalContent.classList.add('show-modal');
+    setModal.classList.remove("hide");
+    modalContent.classList.remove("hide");
+    modalContent.classList.add("show-modal");
   };
 }
 
@@ -95,33 +100,53 @@ populateCanvas();
 
 // Modal
 modalClose.onclick = () => {
-  setModal.classList.add('hide');
-}
+  setModal.classList.add("hide");
+};
 
+// Modal Extra Settings
+
+modalToggle[0].onchange = () => {
+  for (let i = 0; i < canvas.childNodes.length; i++) {
+    canvas.childNodes[i].classList.toggle("canvas--gridlines");
+  }
+
+  if (modalToggle[0].checked === true) {
+    gridlinesOn = true;
+  } else {
+    gridlinesOn = false;
+  }
+};
+
+modalToggle[1].onchange = () => {
+  setPalette.classList.toggle("hide");
+};
 // Slider Size Display
-setSlider.addEventListener('change', () => updateCanvas());
-setSlider.addEventListener('input', (e) => {
+setSlider.addEventListener("change", () => updateCanvas());
+setSlider.addEventListener("input", (e) => {
   setSliderInfo.innerHTML = `${e.target.value} x ${e.target.value}`;
 });
 
 // Rotating Rainbow Button
-setButtons[1].addEventListener('mouseover', () =>
-  setButtons[1].classList.add('rotate'));
+setButtons[1].addEventListener("mouseover", () =>
+  setButtons[1].classList.add("rotate")
+);
 
-setButtons[1].addEventListener('animationend', () =>
-  setButtons[1].classList.remove('rotate'));
+setButtons[1].addEventListener("animationend", () =>
+  setButtons[1].classList.remove("rotate")
+);
 
 // Dynamic Slider Color
-setSlider.addEventListener('input', () => editSliderColor());
+setSlider.addEventListener("input", () => editSliderColor());
 
 function editSliderColor() {
-  var value = (setSlider.value - setSlider.min) / (setSlider.max - setSlider.min) * 100;
+  var value =
+    ((setSlider.value - setSlider.min) / (setSlider.max - setSlider.min)) * 100;
   setSlider.style.background = `linear-gradient(to right, ${setSwatch.value} 0%, ${setSwatch.value} ${value}%, white ${value}%, white 100%)`;
 }
 
 // Color Palette History - Swatch Updater
-setSwatch.addEventListener('change', () => editPalette());
-setSwatch.addEventListener('input', () => editSliderColor());
+setSwatch.addEventListener("change", () => editPalette());
+setSwatch.addEventListener("input", () => editSliderColor());
 
 let paletteCounter = 0;
 
@@ -131,26 +156,25 @@ function editPalette() {
   }
 
   paletteSwatch[paletteCounter].value = setSwatch.value;
-  paletteSwatch[paletteCounter].classList.add('update-color');
+  paletteSwatch[paletteCounter].classList.add("update-color");
   paletteCounter++;
 }
 
 // Color Palette History - Animations Updater
 for (let i = 0; i < paletteSwatch.length; i++) {
-  paletteSwatch[i].addEventListener('input', (e) => {
+  paletteSwatch[i].addEventListener("input", (e) => {
     setSwatch.value = e.target.value;
     editSliderColor();
   });
 
-  paletteSwatch[i].addEventListener('animationend', (e) => {
-    e.target.classList.remove('update-color');
+  paletteSwatch[i].addEventListener("animationend", (e) => {
+    e.target.classList.remove("update-color");
   });
 
-  paletteSwatch[i].addEventListener('click', (e) => {
-    if (e.target.value !== '#ffffff') {
+  paletteSwatch[i].addEventListener("click", (e) => {
+    if (e.target.value !== "#ffffff") {
       setSwatch.value = e.target.value;
       editSliderColor();
     }
   });
 }
-

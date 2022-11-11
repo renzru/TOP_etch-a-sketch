@@ -3,19 +3,31 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Etch-a-Sketch</title>
-  <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="content">
-    <div class="content__modal-background hide">
+    <div class="content__modal-background ">
       <div class="modal__display-content shadow">
-        <h1>placeholder</h1>
+        <h1 class="modal__header">Extra Settings</h1>
         <button class="modal__close-button">X</button>
+        <div class="modal__toggle-container">
+          <p>Grid Lines</p>
+          <label class="modal__toggle-wrapper">
+            <input class="modal__toggle" type="checkbox" checked autocomplete="off">
+            <span class="modal__slider"></span>
+          </label>
+        </div>
+        <div class="modal__toggle-container">
+          <p>Color Palette</p>
+          <label class="modal__toggle-wrapper">
+            <input class="modal__toggle" type="checkbox" checked autocomplete="off">
+            <span class="modal__slider"></span>
+          </label>
+        </div>
       </div>
     </div>
 
