@@ -78,7 +78,12 @@ body {
   -webkit-appearance: none;
 }
 
-.settings__colorpicker::-webkit-color-swatch,
+.settings__colorpicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 0.1em 0.3em rgb(0, 0, 0, 0.3);
+}
+
 .settings__colorpicker::-moz-color-swatch {
   border: none;
   border-radius: 100%;
@@ -218,14 +223,29 @@ body {
 
 /* Skins */
 
-.settings__slider::-webkit-slider-runnable-track,
+.settings__slider::-webkit-slider-runnable-track {
+  height: 0.3em;
+  box-shadow: 0 0 rgb(0, 0, 0, 0.3);
+  border-radius: 10em;
+}
+
 .settings__slider::-moz-range-track {
   height: 0.3em;
   box-shadow: 0 0 rgb(0, 0, 0, 0.3);
   border-radius: 10em;
 }
 
-.settings__slider::-webkit-slider-thumb,
+.settings__slider::-webkit-slider-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  margin: -8px 0;
+  background: white;
+  border-radius: 50%;
+  border: 0px solid #000000;
+  box-shadow: 0 0 0.25em rgb(0, 0, 0, 0.75);
+  -webkit-appearance: none;
+}
+
 .settings__slider::-moz-range-thumb {
   width: 1.5em;
   height: 1.5em;
